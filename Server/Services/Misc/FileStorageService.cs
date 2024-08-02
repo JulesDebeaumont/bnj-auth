@@ -1,8 +1,8 @@
-using Server.Db;
+using Server.DAL.Db;
 
 namespace Server.Services;
 
-public class FileStorageService : ApplicationService
+public class FileStorageService : MiscApplicationService
 {
   private static readonly string DefaultStorageFolder = "Default";
   private readonly IConfiguration _config;

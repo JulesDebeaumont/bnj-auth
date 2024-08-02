@@ -8,7 +8,7 @@ using Server.Models;
 
 namespace Server.Services;
 
-public class AuthService : ApplicationService
+public class AuthService : MiscApplicationService
 {
     public static readonly string ClaimTypeToIdentifyUserOn = ClaimTypes.PrimarySid;
 

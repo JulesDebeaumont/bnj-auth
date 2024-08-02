@@ -1,6 +1,6 @@
 using Server;
-using Server.Db;
 using Server.Services;
+using Server.DAL.Db;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
 
@@ -20,7 +20,6 @@ public partial class Program
       var services = scope.ServiceProvider;
       var context = services.GetRequiredService<MainContext>();
       context.Database.Migrate();
-      DevSeed.RunAsync(context);
     }
 
 
@@ -45,6 +44,7 @@ public partial class Program
     builder.Services.AddDbContext<MainContext>(options =>
         options.UseNpgsql(builder.Configuration[Configuration.DbCredentials]));
     builder.Services.AddTransient<FileStorageService>();
+    builder.Services.AddTransient<AuthService>();
     builder.Services.AddAuthentication(options =>
         {
           options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;

@@ -1,6 +1,6 @@
 namespace Server.Services;
 
-public abstract class ApplicationService
+public abstract class MiscApplicationService
 {
   public class ResponseService
   {
